@@ -220,8 +220,8 @@ DFhackCExport command_result plugin_init (color_ostream &out, std::vector <Plugi
         "    scrolling the map\n"
         "  tweak tradereq-pet-gender [disable]\n"
         "    Displays the gender of pets in the trade request list\n"
-//        "  tweak military-training [disable]\n"
-//        "    Speed up melee squad training, removing inverse dependency on unit count.\n"
+        "  tweak military-training [disable]\n"
+        "    Speed up melee squad training, removing inverse dependency on unit count.\n"
     ));
 
     TWEAK_HOOK("adamantine-cloth-wear", adamantine_cloth_wear_armor_hook, incWearTimer);
@@ -444,7 +444,7 @@ struct dimension_cloth_hook : df::item_clothst {
 
 IMPLEMENT_VMETHOD_INTERPOSE(dimension_cloth_hook, subtractDimension);
 
-/*
+*
 // Unit updates are executed based on an action divisor variable,
 // which is computed from the alive unit count and has range 10-100.
 static int adjust_unit_divisor(int value) {
@@ -625,7 +625,7 @@ struct military_training_ct_hook : df::activity_event_combat_trainingst {
 };
 */
 
-/*
+*
 IMPLEMENT_VMETHOD_INTERPOSE(military_training_ct_hook, process);
 
 struct military_training_sd_hook : df::activity_event_skill_demonstrationst {
@@ -857,7 +857,7 @@ static command_result tweak(color_ostream &out, vector <string> &parameters)
         enable_hook(out, INTERPOSE_HOOK(dimension_thread_hook, subtractDimension), parameters);
         enable_hook(out, INTERPOSE_HOOK(dimension_cloth_hook, subtractDimension), parameters);
     }*/
-/*
+*
     else if (cmd == "military-training")
     {
         enable_hook(out, INTERPOSE_HOOK(military_training_ct_hook, process), parameters);
